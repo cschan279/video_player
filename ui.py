@@ -40,7 +40,7 @@ class MainWindow(Tk):
         self.rowconfigure(0, weight=1)
         self.columnconfigure(0, weight=1)
         self.display = VideoCanvas(self, width=1280, height=720)
-        self.display.grid(row=0, column=0, columnspan=3, sticky="news")
+        self.display.grid(row=0, column=0, columnspan=4, sticky="news")
         self.scroll_var = IntVar()
         self.scroll = Scale(self, from_=0, to=0, resolution=1,
                             variable=self.scroll_var, orient='horizontal', showvalue=False)
@@ -51,6 +51,8 @@ class MainWindow(Tk):
         self.pause_btn.grid(row=2, column=0, sticky='w')
 
         self.curr_var, self.tot_var = StringVar(), StringVar()
+        self.curr_var.set("00.00")
+        self.tot_var.set("00.00")
         self.curr_lbl = Label(self, textvariable=self.curr_var)
         self.curr_lbl.grid(row=2, column=1)
         self.tot_lbl = Label(self, textvariable=self.tot_var)
